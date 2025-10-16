@@ -6,7 +6,7 @@
   /* 1. WARNA (COLORS) */
   --font-color-base: #ddd;
   --font-color-accent: rgb(255, 255, 102);
-  --font-color-muted: #888;
+  --font-color-muted: #aaa;
   
   --bg-gradient: linear-gradient(to right, #3d1d58, #1c2b56);
   --surface-color: rgba(61, 29, 88, 0.95);
@@ -29,9 +29,38 @@
 
   /* 3. TIPOGRAFI (TYPOGRAPHY) */
   --font-family-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+  /* ++ PERUBAHAN ++ */
+  --font-family-heading: 'Agrandir-Grand-Heavy', Verdana, Geneva, Tahoma, sans-serif;
 
-/* 
-  Karena tema utama kita sudah gelap, kita tidak perlu
-  definisi `html.dark` yang berbeda untuk saat ini.
-*/
+  /* ======================================== */
+  /* == CHAT INTERFACE TOKENS == */
+  /* ======================================== */
+
+  /* -- Gaya gelembung chat dari pengguna lain (Incoming) -- */
+  --chat-bg-incoming-original: #2E3440;
+  --chat-bg-incoming-evolution: rgba(46, 26, 71, 0.8);
+  --chat-bg-incoming-elegant: #2E3440;
+  --chat-bg-incoming-monochrome: #3B4252;
+  
+  /* -- Gaya gelembung chat dari pengguna saat ini (Outgoing) -- */
+  --chat-border-outgoing-original: var(--border-color-base);
+  --chat-border-outgoing-evolution: rgba(220, 220, 220, 0.6);
+  --chat-border-outgoing-elegant: #5E81AC;
+  --chat-border-outgoing-monochrome: #4C566A;
+
+  /* -- Elemen Chat Lainnya -- */
+  --chat-timestamp-color: var(--font-color-muted);
+  --chat-input-bg: rgba(0, 0, 0, 0.2);
+  
+  /* -- Tombol Kirim -- */
+  --chat-button-bg-original: var(--surface-color);
+  --chat-button-bg-evolution: var(--surface-color);
+  --chat-button-bg-elegant: #5E81AC;
+  --chat-button-bg-monochrome: #4C566A;
+  
+  --chat-button-text-original: var(--font-color-base);
+  --chat-button-text-evolution: var(--font-color-base);
+  --chat-button-text-elegant: #ECEFF4;
+  --chat-button-text-monochrome: var(--font-color-base);
+
+}

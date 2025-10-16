@@ -1,1 +1,92 @@
-/* File ini bisa digunakan untuk gaya spesifik showcase di masa depan */
+/* Gaya untuk halaman utama (etalase) */
+.page-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.page-content {
+  max-width: 800px;
+  text-align: center;
+}
+
+.page-content h1 {
+  font-family: var(--font-family-heading); /* ++ PERUBAHAN ++ */
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: normal; /* Font kustom sudah tebal */
+}
+
+.page-content p {
+  color: var(--font-color-base); /* ++ PERUBAHAN ++ */
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+}
+
+/* Gaya untuk tombol utama yang akan memicu modal */
+.trigger-button {
+  /* ++ PERUBAHAN ++ */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  /* -- AKHIR PERUBAHAN -- */
+
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius-button);
+  border: var(--border-width-base) solid var(--border-color-base);
+  background-color: transparent;
+  color: var(--font-color-base);
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+}
+
+.trigger-button:hover {
+  color: var(--font-color-accent);
+  border-color: var(--border-color-hover);
+  transform: scale(1.05);
+}
+
+/* ++ PERUBAHAN ++ */
+.divider {
+  border: 0;
+  border-top: 1px solid var(--border-color-base);
+  opacity: 0.5;
+  margin: 4rem auto;
+  width: 50%;
+}
+
+.theme-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.theme-switcher button {
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius-button);
+  border: var(--border-width-base) solid transparent;
+  background-color: var(--surface-color);
+  color: var(--font-color-base);
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.theme-switcher button:hover {
+  border-color: var(--border-color-hover);
+}
+
+.theme-switcher button.active {
+  border-color: var(--border-color-hover);
+  color: var(--font-color-accent);
+  box-shadow: 0 0 10px rgba(255, 255, 102, 0.3);
+}
