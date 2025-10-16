@@ -39,7 +39,7 @@
   /* -- Gaya gelembung chat dari pengguna lain (Incoming) -- */
   --chat-bg-incoming-original: #2E3440;
   --chat-bg-incoming-evolution: rgba(46, 26, 71, 0.8);
-  --chat-bg-incoming-elegant: #2E3440;
+  --chat-bg-incoming-elegant: rgba(46, 26, 71, 0.8);
   --chat-bg-incoming-monochrome: #3B4252;
   
   /* -- Gaya gelembung chat dari pengguna saat ini (Outgoing) -- */
