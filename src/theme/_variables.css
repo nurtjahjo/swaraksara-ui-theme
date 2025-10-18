@@ -33,6 +33,31 @@
   --font-family-heading: 'Agrandir-Grand-Heavy', Verdana, Geneva, Tahoma, sans-serif;
 
   /* ======================================== */
+  /* == NAVIGATION TOKENS == */
+  /* ======================================== */
+  --nav-height: 64px;
+  --nav-bg-color: transparent; /* Navbar awal sekarang transparan */
+  --nav-scrolled-bg-color: #8c1de0; /* Warna ungu solid saat di-scroll */
+  --nav-border-color: var(--border-color-base);
+  --nav-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+  --nav-link-color: var(--font-color-base);
+  --nav-link-hover-bg: rgba(255, 255, 255, 0.05);
+  --nav-link-active-color: var(--font-color-accent);
+
+  /* Token untuk Sidebar Mobile */
+  --sidebar-bg-color: #8c1de0;
+  --sidebar-width: 250px;
+
+  /* ======================================== */
+  /* == FOOTER TOKENS == */
+  /* ======================================== */
+  --footer-bg-color: #000000;
+  --footer-text-color: var(--font-color-base); /* Menggunakan kembali #ddd */
+  --footer-link-hover-color: var(--font-color-accent); /* Menggunakan kembali warna kuning untuk hover */
+  --footer-border-color: #333; /* Warna border yang sedikit lebih terang dari background */
+
+  /* ======================================== */
   /* == CHAT INTERFACE TOKENS == */
   /* ======================================== */
 

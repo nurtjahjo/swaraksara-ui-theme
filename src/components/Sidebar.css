@@ -1,0 +1,71 @@
+.sidebar-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 199;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s;
+}
+
+.sidebar-backdrop.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.sidebar-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: var(--sidebar-width);
+  height: 100%;
+  background-color: var(--sidebar-bg-color);
+  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.2);
+  z-index: 200;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  padding-top: var(--nav-height);
+  box-sizing: border-box;
+}
+
+.sidebar-menu.open {
+  transform: translateX(0);
+}
+
+/* ++ GAYA BARU UNTUK TOMBOL TUTUP ++ */
+.sidebar-close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: var(--nav-height);
+  height: var(--nav-height);
+  background: none;
+  border: none;
+  color: var(--font-color-base);
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* -- AKHIR GAYA BARU -- */
+
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-links .nav-link {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--font-color-base);
+  font-weight: 500;
+}
+
+.sidebar-links .nav-link:hover {
+  background-color: var(--nav-link-hover-bg);
+  color: var(--font-color-accent);
+}

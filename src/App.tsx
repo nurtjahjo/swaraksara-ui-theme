@@ -3,11 +3,11 @@ import { Modal } from './components/Modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowRestore, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { ChatShowcase } from './components/ChatShowcase';
+import { Navbar } from './components/Navbar';
+import { Footer } from './components/Footer';
 
-// Definisikan tipe tema chat yang tersedia
 type ChatTheme = 'original' | 'evolution' | 'elegant' | 'monochrome';
 
-// Gaya untuk tombol di dalam modal (tidak berubah)
 const modalButtonStyle: React.CSSProperties = {
   display: 'inline-flex',
   alignItems: 'center',
@@ -26,99 +26,95 @@ const modalButtonStyle: React.CSSProperties = {
 };
 
 function App() {
-  // State untuk mengontrol visibilitas modal/popup
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  // State untuk mengontrol tema warna mana yang sedang aktif untuk UI Chat
   const [activeChatTheme, setActiveChatTheme] = useState<ChatTheme>('original');
 
   return (
-    <div className="page-container">
-      <main className="page-content">
-        {/* ====================================================== */}
-        {/* BAGIAN 1: Showcase Halaman Utama dan Tombol Pemicu Popup */}
-        {/* ====================================================== */}
-        <h1>Swaraksara UI Theme</h1>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse
-          lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum
-          ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.
-        </p>
-        <button className="trigger-button" onClick={() => setIsModalOpen(true)}>
-          <FontAwesomeIcon icon={faWindowRestore} />
-          <span>Tampilkan Popup Showcase</span>
-        </button>
-
-        {/* Pemisah visual antar bagian */}
-        <hr className="divider" />
-
-        {/* ====================================================== */}
-        {/* BAGIAN 2: Showcase UI Chat dengan Pilihan Tema Dinamis */}
-        {/* ====================================================== */}
-        <h2>Chat UI Showcase</h2>
-
-        {/* Tombol-tombol untuk mengganti tema chat */}
-        <div className="theme-switcher">
-          <button 
-            onClick={() => setActiveChatTheme('original')} 
-            className={activeChatTheme === 'original' ? 'active' : ''}
-          >
-            Original
-          </button>
-          <button 
-            onClick={() => setActiveChatTheme('evolution')} 
-            className={activeChatTheme === 'evolution' ? 'active' : ''}
-          >
-            Evolusi Ungu
-          </button>
-          <button 
-            onClick={() => setActiveChatTheme('elegant')} 
-            className={activeChatTheme === 'elegant' ? 'active' : ''}
-          >
-            Kontras Elegan
-          </button>
-          <button 
-            onClick={() => setActiveChatTheme('monochrome')} 
-            className={activeChatTheme === 'monochrome' ? 'active' : ''}
-          >
-            Fokus Monokrom
-          </button>
-        </div>
-
-        {/* Komponen etalase chat, yang temanya dikontrol oleh state `activeChatTheme` */}
-        <ChatShowcase theme={activeChatTheme} />
-
-      </main>
-
-      {/* ====================================================== */}
-      {/* BAGIAN 3: Komponen Modal/Popup (tidak terlihat awalnya) */}
-      {/* ====================================================== */}
-      <Modal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        title="Style Showcase"
-      >
-        <div style={{ textAlign: 'center' }}>
-          <p style={{ color: 'var(--font-color-base)' }}>
-            Ini adalah pratinjau tema dari paket `@swaraksara/ui-theme`.
+    <div>
+      <Navbar />
+      <div className="page-container">
+        <main className="page-content">
+          <h1>Swaraksara UI Theme</h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse
+            lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum
+            ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.
+            {/* Tambahkan lebih banyak teks untuk memungkinkan scrolling */}
+            <br /><br />
+            Aenean consequat, lorem eget Pretium sodales, augue felis molestie sem, eget tempor
+            massa justo ut sem. Proin sodales, tellus in ultrices fringilla, quam quam
+            ultricies magna, non commodo purus risus non risus.
+            <br /><br />
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
           </p>
-          <button
-            style={modalButtonStyle}
-            onClick={() => setIsModalOpen(false)}
-            onMouseOver={e => {
-              e.currentTarget.style.borderColor = 'var(--border-color-hover)';
-              e.currentTarget.style.color = 'var(--font-color-accent)';
-            }}
-            onMouseOut={e => {
-              e.currentTarget.style.borderColor = 'var(--border-color-base)';
-              e.currentTarget.style.color = 'var(--font-color-base)';
-            }}
-          >
-            <FontAwesomeIcon icon={faTimesCircle} />
-            <span>Tutup Popup</span>
+          <button className="trigger-button" onClick={() => setIsModalOpen(true)}>
+            <FontAwesomeIcon icon={faWindowRestore} />
+            <span>Tampilkan Popup Showcase</span>
           </button>
-        </div>
-      </Modal>
+
+          <hr className="divider" />
+
+          <h2>Chat UI Showcase</h2>
+          <div className="theme-switcher">
+            <button 
+              onClick={() => setActiveChatTheme('original')} 
+              className={activeChatTheme === 'original' ? 'active' : ''}
+            >
+              Original
+            </button>
+            <button 
+              onClick={() => setActiveChatTheme('evolution')} 
+              className={activeChatTheme === 'evolution' ? 'active' : ''}
+            >
+              Evolusi Ungu
+            </button>
+            <button 
+              onClick={() => setActiveChatTheme('elegant')} 
+              className={activeChatTheme === 'elegant' ? 'active' : ''}
+            >
+              Kontras Elegan
+            </button>
+            <button 
+              onClick={() => setActiveChatTheme('monochrome')} 
+              className={activeChatTheme === 'monochrome' ? 'active' : ''}
+            >
+              Fokus Monokrom
+            </button>
+          </div>
+          <ChatShowcase theme={activeChatTheme} />
+        </main>
+
+        <Modal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          title="Style Showcase"
+        >
+          <div style={{ textAlign: 'center' }}>
+            <p style={{ color: 'var(--font-color-base)' }}>
+              Ini adalah pratinjau tema dari paket `@swaraksara/ui-theme`.
+            </p>
+            <button
+              style={modalButtonStyle}
+              onClick={() => setIsModalOpen(false)}
+              onMouseOver={e => {
+                e.currentTarget.style.borderColor = 'var(--border-color-hover)';
+                e.currentTarget.style.color = 'var(--font-color-accent)';
+              }}
+              onMouseOut={e => {
+                e.currentTarget.style.borderColor = 'var(--border-color-base)';
+                e.currentTarget.style.color = 'var(--font-color-base)';
+              }}
+            >
+              <FontAwesomeIcon icon={faTimesCircle} />
+              <span>Tutup Popup</span>
+            </button>
+          </div>
+        </Modal>
+      </div>
+
+      <Footer />
     </div>
   );
 }

@@ -1,11 +1,11 @@
 /* Gaya untuk halaman utama (etalase) */
 .page-container {
-  min-height: 100vh;
+  /* Hapus min-height agar bisa discroll dengan benar */
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding: 2rem;
+  /* Beri padding lebih besar di atas untuk ruang di bawah navbar */
+  padding: 4rem 2rem;
   box-sizing: border-box;
 }
 
