@@ -19,20 +19,28 @@
 .sidebar-menu {
   position: fixed;
   top: 0;
-  right: 0;
+  right: 0; 
   width: var(--sidebar-width);
-  height: 100%;
+  height: auto;
   background-color: var(--sidebar-bg-color);
   box-shadow: -4px 0 15px rgba(0, 0, 0, 0.2);
   z-index: 200;
   transform: translateX(100%);
-  transition: transform 0.3s ease-in-out;
   padding-top: var(--nav-height);
+  padding-bottom: 1rem;
   box-sizing: border-box;
+  border-bottom-left-radius: var(--border-radius-form, 8px);
+  
+  /* ++ PERBAIKAN: Kontrol transisi dan visibilitas untuk cegah flicker ++ */
+  visibility: hidden; /* Sembunyikan sepenuhnya saat tidak aktif */
+  transition: transform 0.3s ease-in-out, visibility 0s 0.3s; /* Tunda hilangnya visibility saat menutup */
 }
 
 .sidebar-menu.open {
   transform: translateX(0);
+  /* ++ PERBAIKAN: Tampilkan saat aktif dan hapus penundaan transisi ++ */
+  visibility: visible;
+  transition: transform 0.3s ease-in-out, visibility 0s 0s;
 }
 
 .sidebar-close-btn {
@@ -61,9 +69,35 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   color: var(--font-color-base);
   font-weight: 500;
+  text-align: right; /* Default rata kanan untuk authormgm & narratormgm */
 }
 
 .sidebar-links .nav-link:hover {
   background-color: var(--nav-link-hover-bg);
   color: var(--nav-link-active-color);
+}
+
+
+/* === THEME OVERRIDES for storemgm === */
+
+body.storemgm .sidebar-menu {
+  left: 0;
+  right: auto;
+  transform: translateX(-100%);
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: var(--border-radius-form, 8px);
+}
+
+body.storemgm .sidebar-menu.open {
+  transform: translateX(0);
+}
+
+body.storemgm .sidebar-close-btn {
+  left: 0;
+  right: auto;
+}
+
+body.storemgm .sidebar-links .nav-link {
+  text-align: left; /* Teks rata kiri untuk storemgm */
 }

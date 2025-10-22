@@ -18,6 +18,9 @@ type ChatTheme = 'original' | 'evolution' | 'elegant' | 'monochrome';
  * @param theme Nama tema yang akan dimuat (misalnya, 'storemgm').
  */
 const loadTheme = (theme: AppTheme) => {
+  // Tambahkan class ke body untuk penargetan CSS. Ini adalah dependensi.
+  document.body.className = theme;
+
   // Cari elemen <link> tema yang sudah ada di dokumen
   let themeLink = document.getElementById('app-theme-style') as HTMLLinkElement;
 
@@ -25,16 +28,12 @@ const loadTheme = (theme: AppTheme) => {
   const themePath = `/themes/${theme}.css`;
 
   if (themeLink) {
-    // Jika elemen <link> sudah ada, cukup ubah atribut `href`-nya.
-    // Ini cara yang sangat efisien untuk mengganti tema.
     themeLink.href = themePath;
   } else {
-    // Jika ini pertama kalinya, buat elemen <link> baru.
     themeLink = document.createElement('link');
     themeLink.id = 'app-theme-style';
     themeLink.rel = 'stylesheet';
     themeLink.href = themePath;
-    // Tambahkan elemen <link> ke dalam <head> dokumen.
     document.head.appendChild(themeLink);
   }
 };
@@ -58,15 +57,10 @@ const modalButtonStyle: React.CSSProperties = {
 };
 
 function App() {
-  // State untuk melacak tema aplikasi mana yang sedang aktif
   const [appTheme, setAppTheme] = useState<AppTheme>('authormgm');
-  // State untuk mengontrol visibilitas modal/popup
   const [isModalOpen, setIsModalOpen] = useState(false);
-  // State untuk melacak variasi tema chat yang aktif
   const [activeChatTheme, setActiveChatTheme] = useState<ChatTheme>('original');
 
-  // Gunakan useEffect untuk memanggil `loadTheme` setiap kali `appTheme` berubah.
-  // Ini adalah inti dari mekanisme penggantian tema.
   useEffect(() => {
     loadTheme(appTheme);
   }, [appTheme]);
@@ -79,7 +73,6 @@ function App() {
           
           <h1>Swaraksara UI Theme</h1>
 
-          {/* Tombol-tombol untuk mengubah state `appTheme` */}
           <div className="theme-switcher">
             <button 
               onClick={() => setAppTheme('authormgm')} 

@@ -70,6 +70,16 @@
   z-index: 201;
 }
 
+/* === THEME OVERRIDES === */
+/* Pindahkan hamburger ke kiri untuk tema storemgm */
+body.storemgm .hamburger-menu {
+  order: -1; /* Pindahkan ke posisi paling awal */
+}
+body.storemgm .navbar-logo {
+  margin-left: 1rem; /* Beri jarak antara hamburger dan logo */
+}
+
+
 @media (max-width: 768px) {
   .navbar-links {
     display: none;
