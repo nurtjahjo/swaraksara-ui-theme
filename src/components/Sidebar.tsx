@@ -13,7 +13,6 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
     <>
       <div className={`sidebar-backdrop ${isOpen ? 'open' : ''}`} onClick={onClose} />
       <nav className={`sidebar-menu ${isOpen ? 'open' : ''}`}>
-        {/* ++ TOMBOL TUTUP DIPINDAHKAN KE SINI ++ */}
         <button 
           className="sidebar-close-btn" 
           onClick={onClose}
@@ -21,7 +20,6 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
         >
           <FontAwesomeIcon icon={faTimes} />
         </button>
-        {/* -- AKHIR PERUBAHAN -- */}
 
         <div className="sidebar-links">
           <a href="#" className="nav-link active">Produk</a>

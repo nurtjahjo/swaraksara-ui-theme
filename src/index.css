@@ -1,10 +1,7 @@
-/* Gaya untuk halaman utama (etalase) */
 .page-container {
-  /* Hapus min-height agar bisa discroll dengan benar */
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* Beri padding lebih besar di atas untuk ruang di bawah navbar */
   padding: 4rem 2rem;
   box-sizing: border-box;
 }
@@ -15,27 +12,23 @@
 }
 
 .page-content h1 {
-  font-family: var(--font-family-heading); /* ++ PERUBAHAN ++ */
+  font-family: var(--font-family-heading);
   font-size: 3rem;
   margin-bottom: 1rem;
-  font-weight: normal; /* Font kustom sudah tebal */
+  font-weight: normal;
 }
 
 .page-content p {
-  color: var(--font-color-base); /* ++ PERUBAHAN ++ */
+  color: var(--font-color-base);
   font-size: 1.1rem;
   margin-bottom: 2.5rem;
 }
 
-/* Gaya untuk tombol utama yang akan memicu modal */
 .trigger-button {
-  /* ++ PERUBAHAN ++ */
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-  /* -- AKHIR PERUBAHAN -- */
-
   padding: 0.75rem 1.5rem;
   border-radius: var(--border-radius-button);
   border: var(--border-width-base) solid var(--border-color-base);
@@ -53,7 +46,6 @@
   transform: scale(1.05);
 }
 
-/* ++ PERUBAHAN ++ */
 .divider {
   border: 0;
   border-top: 1px solid var(--border-color-base);

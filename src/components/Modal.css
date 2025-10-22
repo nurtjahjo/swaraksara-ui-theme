@@ -32,8 +32,8 @@
 }
 
 .modal-header h2 {
-  font-family: var(--font-family-heading); /* ++ PERUBAHAN ++ */
-  font-weight: normal; /* Font kustom sudah tebal */
+  font-family: var(--font-family-heading);
+  font-weight: normal;
   margin: 0;
   font-size: 1.8rem;
 }

@@ -1,0 +1,56 @@
+:root {
+  /* ======================================== */
+  /* == THEME: STORE MGM (BRIGHT & CLEAN) == */
+  /* ======================================== */
+
+  /* 1. WARNA (COLORS) */
+  --font-color-base: #111827;
+  --font-color-accent: #D97706;
+  --font-color-muted: #6B7280;
+  
+  --bg-gradient: #FFFFFF;
+  --surface-color: #F9FAFB;
+
+  --primary-color-hover: #F97316;
+
+  --border-color-base: #D1D5DB;
+  --border-color-hover: #F97316;
+
+  --cta-bg-color: #EF4444;
+  --cta-text-color: #FFFFFF;
+
+  /* 2. BENTUK (SHAPES & BORDERS) */
+  --border-width-base: 1px;
+  --border-radius-form: 8px;
+  --border-radius-button: 6px;
+  --border-radius-input: 6px;
+
+  /* 3. TIPOGRAFI (TYPOGRAPHY) */
+  --font-family-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-family-heading: 'Agrandir-Grand-Heavy', Verdana, Geneva, Tahoma, sans-serif;
+
+  /* -- Variabel Header & Navigasi -- */
+  --nav-height: 64px;
+  --nav-bg-color: transparent;
+  --nav-scrolled-bg-color: linear-gradient(to right, #FFD34E, #FFAA4E);
+  --nav-border-color: #E5E7EB;
+  --nav-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --nav-link-color: var(--font-color-base);
+  --nav-link-hover-bg: rgba(0, 0, 0, 0.03);
+  --nav-link-active-color: var(--cta-bg-color);
+  --sidebar-bg-color: #FFFFFF;
+  --nav-initial-opacity: 1; /* Mulai solid (langsung terlihat) */
+
+  /* -- Variabel Footer -- */
+  --footer-bg-color: #111827;
+  --footer-text-color: #D1D5DB;
+  --footer-link-hover-color: #FFAA4E;
+  --footer-border-color: #374151;
+
+  /* -- Variabel Chat (Adaptasi untuk tema cerah) -- */
+  --chat-bg-incoming-original: #E5E7EB;
+  --chat-border-outgoing-original: var(--border-color-hover);
+  --chat-input-bg: #F3F4F6;
+  --chat-button-bg-original: var(--cta-bg-color);
+  --chat-button-text-original: var(--cta-text-color);
+}

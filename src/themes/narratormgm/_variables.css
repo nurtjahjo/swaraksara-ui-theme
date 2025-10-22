@@ -1,0 +1,56 @@
+:root {
+  /* ======================================== */
+  /* == THEME: NARRATOR MGM (CALM & FOCUSED) == */
+  /* ======================================== */
+
+  /* 1. WARNA (COLORS) */
+  --font-color-base: #E5E9F0; /* Putih kebiruan yang lembut */
+  --font-color-accent: #88C0D0; /* Biru es sebagai aksen */
+  --font-color-muted: #81A1C1; /* Abu-abu kebiruan untuk teks sekunder */
+  
+  --bg-gradient: linear-gradient(to right, #2E3440, #3B4252); /* Gradasi abu-abu gelap kebiruan */
+  --surface-color: rgba(59, 66, 82, 0.95); /* Warna kartu/modal yang senada */
+
+  --primary-color-hover: #8FBCBB; /* Teal lembut untuk hover */
+
+  --border-color-base: #4C566A;
+  --border-color-hover: #88C0D0;
+
+  --success-color: #A3BE8C; /* Hijau lembut */
+  --error-color: #BF616A;  /* Merah lembut */
+
+  /* 2. BENTUK (SHAPES & BORDERS) */
+  --border-width-base: 1px;
+  --border-radius-form: 6px;
+  --border-radius-button: 6px;
+  --border-radius-input: 4px;
+
+  /* 3. TIPOGRAFI (TYPOGRAPHY) */
+  --font-family-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-family-heading: 'Agrandir-Grand-Heavy', Verdana, Geneva, Tahoma, sans-serif;
+
+  /* -- Variabel Navigasi -- */
+  --nav-height: 64px;
+  --nav-bg-color: transparent;
+  --nav-scrolled-bg-color: linear-gradient(to right, #5E81AC, #88C0D0); /* Gradasi Biru ke Hijau Es */
+  --nav-border-color: #4C566A;
+  --nav-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --nav-link-color: var(--font-color-base);
+  --nav-link-hover-bg: rgba(136, 192, 208, 0.1);
+  --nav-link-active-color: var(--font-color-accent);
+  --sidebar-bg-color: #3B4252;
+  --nav-initial-opacity: 0; /* Mulai transparan seperti authormgm */
+
+  /* -- Variabel Footer -- */
+  --footer-bg-color: #2E3440;
+  --footer-text-color: #D8DEE9;
+  --footer-link-hover-color: #88C0D0;
+  --footer-border-color: #434C5E;
+
+  /* -- Variabel Chat (Adaptasi untuk tema ini) -- */
+  --chat-bg-incoming-original: #434C5E;
+  --chat-border-outgoing-original: var(--border-color-hover);
+  --chat-input-bg: rgba(0, 0, 0, 0.2);
+  --chat-button-bg-original: #88C0D0;
+  --chat-button-text-original: #2E3440;
+}

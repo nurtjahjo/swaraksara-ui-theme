@@ -35,7 +35,6 @@
   transform: translateX(0);
 }
 
-/* ++ GAYA BARU UNTUK TOMBOL TUTUP ++ */
 .sidebar-close-btn {
   position: absolute;
   top: 0;
@@ -51,7 +50,6 @@
   align-items: center;
   justify-content: center;
 }
-/* -- AKHIR GAYA BARU -- */
 
 .sidebar-links {
   display: flex;
@@ -67,5 +65,5 @@
 
 .sidebar-links .nav-link:hover {
   background-color: var(--nav-link-hover-bg);
-  color: var(--font-color-accent);
+  color: var(--nav-link-active-color);
 }

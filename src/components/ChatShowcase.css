@@ -62,12 +62,10 @@
 }
 
 .chat-input-area button {
-  /* ++ PERUBAHAN DI SINI ++ */
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-  /* -- AKHIR PERUBAHAN -- */
   border-radius: var(--border-radius-button);
   font-weight: bold;
   cursor: pointer;

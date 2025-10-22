@@ -3,10 +3,8 @@
   color: var(--footer-text-color);
   padding: 2rem 1.5rem;
   border-top: 1px solid var(--footer-border-color);
-  
-  /* Gunakan flexbox untuk menata layout */
   display: flex;
-  flex-wrap: wrap; /* Izinkan wrapping di layar kecil */
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
@@ -36,7 +34,6 @@
   text-decoration: underline;
 }
 
-/* Atur agar di mobile, semuanya menjadi di tengah */
 @media (max-width: 768px) {
   .footer {
     flex-direction: column;

@@ -4,26 +4,26 @@
   justify-content: space-between;
   height: var(--nav-height);
   padding: 0 1.5rem;
-  position: fixed; /* Diubah menjadi fixed */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   box-sizing: border-box;
   z-index: 100;
-  transition: background-color 0.3s ease-in-out; /* Transisi untuk warna latar */
+  background-color: var(--nav-bg-color); 
+  transition: background-color 0.3s ease-in-out;
 }
 
-/* Div overlay yang warnanya berubah saat di-scroll */
 .navbar-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--nav-scrolled-bg-color);
+  background: var(--nav-scrolled-bg-color);
   box-shadow: var(--nav-shadow);
   z-index: -1;
-  opacity: 0;
+  opacity: var(--nav-initial-opacity);
   transition: opacity 0.3s ease-in-out;
 }
 
@@ -53,7 +53,7 @@
 
 .nav-link:hover {
   background-color: var(--nav-link-hover-bg);
-  color: var(--font-color-accent);
+  color: var(--nav-link-active-color);
 }
 
 .nav-link.active {
@@ -67,10 +67,9 @@
   color: var(--font-color-base);
   font-size: 1.5rem;
   cursor: pointer;
-  z-index: 201; /* Harus di atas sidebar */
+  z-index: 201;
 }
 
-/* Tampilan Mobile */
 @media (max-width: 768px) {
   .navbar-links {
     display: none;
