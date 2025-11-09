@@ -1,5 +1,5 @@
 {
-  "name": "@swaraksara/ui-theme",
+  "name": "@nurtjahjo/swaraksara-ui-theme",
   "private": false,
   "version": "0.1.0",
   "type": "module",
@@ -17,6 +17,23 @@
     "build:themes": "tsc && vite build --config vite.themes.config.ts",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nurtjahjo/swaraksara-ui-theme.git"
+  },
+  "keywords": [
+    "react",
+    "theme",
+    "css",
+    "ui",
+    "swaraksara",
+    "vite"
+  ],
+  "author": "Nurtjahjo <seto@swaraksara.id>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nurtjahjo/swaraksara-ui-theme/issues"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
