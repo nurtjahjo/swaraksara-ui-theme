@@ -14,6 +14,7 @@
   transition: background-color 0.3s ease-in-out;
 }
 
+/* ... (gaya .navbar-overlay tetap sama) ... */
 .navbar-overlay {
   position: absolute;
   top: 0;
@@ -26,7 +27,6 @@
   opacity: var(--nav-initial-opacity);
   transition: opacity 0.3s ease-in-out;
 }
-
 .navbar.scrolled .navbar-overlay {
   opacity: 1;
 }
@@ -42,6 +42,22 @@
   display: flex;
   gap: 1rem;
 }
+
+/* ++ ATURAN BARU YANG CERDAS BERBASIS TEMA ++ */
+/* Secara default, hamburger ada di kanan (order: 3) */
+.navbar-logo { order: 1; }
+.navbar-links { order: 2; }
+.hamburger-menu { order: 3; }
+
+/* TAPI, jika body memiliki class theme-storemgm... */
+body.theme-storemgm .navbar-logo { 
+  order: 2; /* Logo jadi di tengah */
+  margin-left: 1rem; /* Beri jarak dari hamburger */
+}
+body.theme-storemgm .hamburger-menu { 
+  order: 1; /* Hamburger jadi di paling kiri */
+}
+/* -- AKHIR ATURAN BARU -- */
 
 .nav-link {
   color: var(--nav-link-color);
@@ -69,16 +85,6 @@
   cursor: pointer;
   z-index: 201;
 }
-
-/* === THEME OVERRIDES === */
-/* Pindahkan hamburger ke kiri untuk tema storemgm */
-body.storemgm .hamburger-menu {
-  order: -1; /* Pindahkan ke posisi paling awal */
-}
-body.storemgm .navbar-logo {
-  margin-left: 1rem; /* Beri jarak antara hamburger dan logo */
-}
-
 
 @media (max-width: 768px) {
   .navbar-links {

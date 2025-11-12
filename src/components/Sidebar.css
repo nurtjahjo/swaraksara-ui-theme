@@ -43,6 +43,21 @@
   transition: transform 0.3s ease-in-out, visibility 0s 0s;
 }
 
+/* ++ ATURAN POSISI BARU BERBASIS TEMA ++ */
+/* Default (untuk authormgm & narratormgm) */
+body:not(.theme-storemgm) .sidebar-menu {
+  right: 0;
+  transform: translateX(100%);
+  border-bottom-left-radius: var(--border-radius-form, 8px);
+}
+/* Khusus untuk storemgm */
+body.theme-storemgm .sidebar-menu {
+  left: 0;
+  transform: translateX(-100%);
+  border-bottom-right-radius: var(--border-radius-form, 8px);
+}
+/* -- AKHIR ATURAN POSISI BARU -- */
+
 .sidebar-close-btn {
   position: absolute;
   top: 0;

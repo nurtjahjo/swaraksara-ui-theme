@@ -1,7 +1,12 @@
-:root {
+body.theme-storemgm {
   /* ======================================== */
   /* == THEME: STORE MGM (BRIGHT & CLEAN) == */
   /* ======================================== */
+
+  /* Definisi ini berlaku untuk LIGHT MODE sebagai default */
+  background: #FFFFFF;
+  color: #111827;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
   /* 1. WARNA (COLORS) */
   --font-color-base: #111827;
@@ -39,7 +44,8 @@
   --nav-link-hover-bg: rgba(0, 0, 0, 0.03);
   --nav-link-active-color: var(--cta-bg-color);
   --sidebar-bg-color: #FFFFFF;
-  --nav-initial-opacity: 1; /* Mulai solid (langsung terlihat) */
+  --nav-initial-opacity: 1;
+  --sidebar-link-align: left;
 
   /* -- Variabel Footer -- */
   --footer-bg-color: #111827;
@@ -53,4 +59,38 @@
   --chat-input-bg: #F3F4F6;
   --chat-button-bg-original: var(--cta-bg-color);
   --chat-button-text-original: var(--cta-text-color);
+}
+
+/* ======================================== */
+/* == STORE MGM - DARK MODE OVERRIDES == */
+/* ======================================== */
+/* Ini untuk deteksi otomatis preferensi OS */
+@media (prefers-color-scheme: dark) {
+  /* ++ PERBAIKAN SELEKTOR ++ */
+  html.dark-mode-auto body.theme-storemgm {
+    --font-color-base: #F9FAFB;
+    --bg-gradient: #111827;
+    --surface-color: #1F2937;
+    --border-color-base: #374151;
+    --nav-scrolled-bg-color: linear-gradient(to right, #1F2937, #111827);
+    --sidebar-bg-color: #1F2937;
+    --footer-bg-color: #000000;
+    --chat-bg-incoming-original: #374151;
+  }
+}
+
+/* Ini untuk tombol manual switcher kita */
+/* ++ PERBAIKAN SELEKTOR UTAMA DI SINI ++ */
+html.dark body.theme-storemgm {
+  background: #111827;
+  color: #F9FAFB;
+
+  --font-color-base: #F9FAFB;
+  --bg-gradient: #111827;
+  --surface-color: #1F2937;
+  --border-color-base: #374151;
+  --nav-scrolled-bg-color: linear-gradient(to right, #1F2937, #111827);
+  --sidebar-bg-color: #1F2937;
+  --footer-bg-color: #000000;
+  --chat-bg-incoming-original: #374151;
 }

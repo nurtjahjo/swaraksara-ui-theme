@@ -5,26 +5,22 @@ import { faWindowRestore, faTimesCircle } from '@fortawesome/free-solid-svg-icon
 import { ChatShowcase } from './components/ChatShowcase';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
+import { ThemeProvider } from './providers/ThemeProvider';
+import { ThemeSwitcher } from './components/ThemeSwitcher';
 
-// Tipe untuk nama tema, digunakan untuk memuat file CSS yang sesuai
 type AppTheme = 'authormgm' | 'storemgm' | 'narratormgm';
-
-// Tipe untuk variasi gaya komponen Chat
 type ChatTheme = 'original' | 'evolution' | 'elegant' | 'monochrome';
 
 /**
- * Fungsi helper yang dijamin berhasil untuk memuat dan mengganti stylesheet tema.
- * Ini bekerja baik di mode development maupun setelah di-build.
- * @param theme Nama tema yang akan dimuat (misalnya, 'storemgm').
+ * Fungsi helper yang memuat stylesheet tema secara dinamis.
+ * Ini adalah metode yang andal untuk mode dev dan build.
+ * @param theme Nama tema yang akan dimuat.
  */
 const loadTheme = (theme: AppTheme) => {
-  // Tambahkan class ke body untuk penargetan CSS. Ini adalah dependensi.
-  document.body.className = theme;
+  // Tambahkan juga class ke body untuk penargetan gaya spesifik jika diperlukan
+  document.body.className = `theme-${theme}`;
 
-  // Cari elemen <link> tema yang sudah ada di dokumen
   let themeLink = document.getElementById('app-theme-style') as HTMLLinkElement;
-
-  // Path ke file CSS tema. Path ini akan valid baik di server dev maupun produksi.
   const themePath = `/themes/${theme}.css`;
 
   if (themeLink) {
@@ -38,7 +34,6 @@ const loadTheme = (theme: AppTheme) => {
   }
 };
 
-// Gaya untuk tombol di dalam modal (tidak ada perubahan)
 const modalButtonStyle: React.CSSProperties = {
   display: 'inline-flex',
   alignItems: 'center',
@@ -56,7 +51,10 @@ const modalButtonStyle: React.CSSProperties = {
   transition: 'all 0.2s ease-in-out'
 };
 
-function App() {
+/**
+ * Komponen yang berisi UI utama aplikasi.
+ */
+function AppContent() {
   const [appTheme, setAppTheme] = useState<AppTheme>('authormgm');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [activeChatTheme, setActiveChatTheme] = useState<ChatTheme>('original');
@@ -64,10 +62,15 @@ function App() {
   useEffect(() => {
     loadTheme(appTheme);
   }, [appTheme]);
+  
+  // Tentukan posisi hamburger secara dinamis berdasarkan tema yang aktif
+  const hamburgerPosition = appTheme === 'storemgm' ? 'left' : 'right';
 
   return (
     <div>
-      <Navbar />
+      {/* Kirim prop 'hamburgerPosition' ke Navbar */}
+      <Navbar hamburgerPosition={hamburgerPosition} />
+      
       <div className="page-container">
         <main className="page-content">
           
@@ -78,7 +81,7 @@ function App() {
               onClick={() => setAppTheme('authormgm')} 
               className={appTheme === 'authormgm' ? 'active' : ''}
             >
-              Author Theme
+              Author/Narrator Theme
             </button>
             <button 
               onClick={() => setAppTheme('storemgm')} 
@@ -93,6 +96,12 @@ function App() {
               Narrator Theme
             </button>
           </div>
+
+          {appTheme === 'storemgm' && (
+            <div style={{ marginBottom: '2rem' }}>
+              <ThemeSwitcher />
+            </div>
+          )}
 
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse
@@ -173,6 +182,17 @@ function App() {
       </div>
       <Footer />
     </div>
+  );
+}
+
+/**
+ * Komponen App utama hanya membungkus dengan ThemeProvider.
+ */
+function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
   );
 }
 

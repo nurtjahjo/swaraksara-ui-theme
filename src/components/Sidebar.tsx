@@ -3,16 +3,18 @@ import './Sidebar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
+// Definisikan props yang diterima oleh Sidebar
 interface SidebarProps {
   isOpen: boolean;
   onClose: () => void;
+  position: 'left' | 'right';
 }
 
-export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
+export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, position }) => {
   return (
     <>
       <div className={`sidebar-backdrop ${isOpen ? 'open' : ''}`} onClick={onClose} />
-      <nav className={`sidebar-menu ${isOpen ? 'open' : ''}`}>
+      <nav className={`sidebar-menu ${isOpen ? 'open' : ''} position-${position}`}>
         <button 
           className="sidebar-close-btn" 
           onClick={onClose}

@@ -4,7 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { Sidebar } from './Sidebar';
 
-export const Navbar: React.FC = () => {
+// Definisikan props yang diterima oleh komponen ini
+interface NavbarProps {
+  hamburgerPosition: 'left' | 'right';
+}
+
+export const Navbar: React.FC<NavbarProps> = ({ hamburgerPosition }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -21,7 +26,7 @@ export const Navbar: React.FC = () => {
 
   return (
     <>
-      <header className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+      <header className={`navbar ${isScrolled ? 'scrolled' : ''} hamburger-${hamburgerPosition}`}>
         <div className="navbar-overlay" />
         <a href="#" className="navbar-logo">
           SwarAksara
@@ -42,7 +47,11 @@ export const Navbar: React.FC = () => {
           <FontAwesomeIcon icon={faBars} />
         </button>
       </header>
-      <Sidebar isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
+      <Sidebar 
+        isOpen={isMobileMenuOpen} 
+        onClose={() => setIsMobileMenuOpen(false)} 
+        position={hamburgerPosition} // Kirim prop posisi ke Sidebar
+      />
     </>
   );
 };
