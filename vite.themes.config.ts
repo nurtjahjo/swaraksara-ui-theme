@@ -9,6 +9,7 @@ export default defineConfig({
         authormgm: resolve(__dirname, 'src/themes/authormgm/index.css'),
         storemgm: resolve(__dirname, 'src/themes/storemgm/index.css'),
         narratormgm: resolve(__dirname, 'src/themes/narratormgm/index.css'),
+        usermgm: resolve(__dirname, 'src/themes/usermgm/index.css'),
       },
       output: {
         // Simpan file CSS di dalam subfolder 'themes' di dalam 'dist'

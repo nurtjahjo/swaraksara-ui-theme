@@ -8,7 +8,7 @@ import { Footer } from './components/Footer';
 import { ThemeProvider } from './providers/ThemeProvider';
 import { ThemeSwitcher } from './components/ThemeSwitcher';
 
-type AppTheme = 'authormgm' | 'storemgm' | 'narratormgm';
+type AppTheme = 'authormgm' | 'storemgm' | 'narratormgm' | 'usermgm';
 type ChatTheme = 'original' | 'evolution' | 'elegant' | 'monochrome';
 
 /**
@@ -64,7 +64,8 @@ function AppContent() {
   }, [appTheme]);
   
   // Tentukan posisi hamburger secara dinamis berdasarkan tema yang aktif
-  const hamburgerPosition = appTheme === 'storemgm' ? 'left' : 'right';
+  // usermgm mengikuti storemgm (kiri)
+  const hamburgerPosition = (appTheme === 'storemgm' || appTheme === 'usermgm') ? 'left' : 'right';
 
   return (
     <div>
@@ -81,7 +82,7 @@ function AppContent() {
               onClick={() => setAppTheme('authormgm')} 
               className={appTheme === 'authormgm' ? 'active' : ''}
             >
-              Author/Narrator Theme
+              Author/Narrator
             </button>
             <button 
               onClick={() => setAppTheme('storemgm')} 
@@ -95,9 +96,15 @@ function AppContent() {
             >
               Narrator Theme
             </button>
+            <button 
+              onClick={() => setAppTheme('usermgm')} 
+              className={appTheme === 'usermgm' ? 'active' : ''}
+            >
+              User Mgm
+            </button>
           </div>
 
-          {appTheme === 'storemgm' && (
+          {(appTheme === 'storemgm' || appTheme === 'usermgm') && (
             <div style={{ marginBottom: '2rem' }}>
               <ThemeSwitcher />
             </div>

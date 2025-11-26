@@ -1,0 +1,126 @@
+body.theme-usermgm {
+  /* ======================================== */
+  /* == THEME: USER MGM (Based on Store MGM) == */
+  /* ======================================== */
+
+  /* Definisi ini berlaku untuk LIGHT MODE sebagai default */
+  background: #FFFFFF;
+  color: #111827;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  /* 1. WARNA (COLORS) */
+  --font-color-base: #111827;
+  --font-color-accent: #D97706;
+  --font-color-muted: #6B7280;
+  
+  --bg-gradient: #FFFFFF;
+  --surface-color: #F9FAFB;
+
+  --primary-color-hover: #F97316;
+
+  --border-color-base: #D1D5DB;
+  --border-color-hover: #F97316;
+
+  --cta-bg-color: #EF4444;
+  --cta-text-color: #FFFFFF;
+
+  /* 2. BENTUK (SHAPES & BORDERS) */
+  --border-width-base: 1px;
+  --border-radius-form: 8px;
+  --border-radius-button: 6px;
+  --border-radius-input: 6px;
+
+  /* 3. TIPOGRAFI (TYPOGRAPHY) */
+  --font-family-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-family-heading: 'Agrandir-Grand-Heavy', Verdana, Geneva, Tahoma, sans-serif;
+
+  /* -- Variabel Header & Navigasi -- */
+  --nav-height: 64px;
+  --nav-bg-color: transparent;
+  --nav-scrolled-bg-color: linear-gradient(to right, #FFD34E, #FFAA4E);
+  --nav-border-color: #E5E7EB;
+  --nav-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --nav-link-color: var(--font-color-base);
+  --nav-link-hover-bg: rgba(0, 0, 0, 0.03);
+  --nav-link-active-color: var(--cta-bg-color);
+  --sidebar-bg-color: #FFFFFF;
+  --nav-initial-opacity: 1;
+  --sidebar-link-align: left;
+
+  /* -- Variabel Footer -- */
+  --footer-bg-color: #111827;
+  --footer-text-color: #D1D5DB;
+  --footer-link-hover-color: #FFAA4E;
+  --footer-border-color: #374151;
+
+  /* -- Variabel Chat -- */
+  --chat-bg-incoming-original: #E5E7EB;
+  --chat-border-outgoing-original: var(--border-color-hover);
+  --chat-input-bg: #F3F4F6;
+  --chat-button-bg-original: var(--cta-bg-color);
+  --chat-button-text-original: var(--cta-text-color);
+}
+
+/* ======================================== */
+/* == USER MGM - DARK MODE OVERRIDES == */
+/* ======================================== */
+/* Ini untuk deteksi otomatis preferensi OS */
+@media (prefers-color-scheme: dark) {
+  html.dark-mode-auto body.theme-usermgm {
+    --font-color-base: #F9FAFB;
+    --bg-gradient: #111827;
+    --surface-color: #1F2937;
+    --border-color-base: #374151;
+    --nav-scrolled-bg-color: linear-gradient(to right, #1F2937, #111827);
+    --sidebar-bg-color: #1F2937;
+    --footer-bg-color: #000000;
+    --chat-bg-incoming-original: #374151;
+  }
+}
+
+/* Ini untuk tombol manual switcher kita */
+html.dark body.theme-usermgm {
+  background: #111827;
+  color: #F9FAFB;
+
+  --font-color-base: #F9FAFB;
+  --bg-gradient: #111827;
+  --surface-color: #1F2937;
+  --border-color-base: #374151;
+  --nav-scrolled-bg-color: linear-gradient(to right, #1F2937, #111827);
+  --sidebar-bg-color: #1F2937;
+  --footer-bg-color: #000000;
+  --chat-bg-incoming-original: #374151;
+}
+
+/* Override posisi sidebar khusus usermgm (mirip storemgm) */
+body.theme-usermgm .sidebar-menu {
+  left: 0;
+  right: auto;
+  transform: translateX(-100%);
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: var(--border-radius-form, 8px);
+}
+
+body.theme-usermgm .sidebar-menu.open {
+  transform: translateX(0);
+}
+
+body.theme-usermgm .sidebar-close-btn {
+  left: 0;
+  right: auto;
+}
+
+body.theme-usermgm .sidebar-links .nav-link {
+  text-align: left;
+}
+
+/* Override navbar logo khusus usermgm */
+body.theme-usermgm .navbar-logo { 
+  order: 2; 
+  margin-left: 1rem; 
+}
+body.theme-usermgm .hamburger-menu { 
+  order: 1; 
+}

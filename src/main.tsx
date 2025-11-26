@@ -7,6 +7,7 @@ import './index.css';
 import './themes/authormgm/index.css';
 import './themes/storemgm/index.css';
 import './themes/narratormgm/index.css';
+import './themes/usermgm/index.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

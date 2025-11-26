@@ -1,7 +1,7 @@
 {
   "name": "@nurtjahjo/swaraksara-ui-theme",
   "private": false,
-  "version": "0.2.0",
+  "version": "0.2.1",
   "type": "module",
   "files": [
     "dist/themes"
@@ -9,7 +9,8 @@
   "exports": {
     "./authormgm": "./dist/themes/authormgm.css",
     "./storemgm": "./dist/themes/storemgm.css",
-    "./narratormgm": "./dist/themes/narratormgm.css"
+    "./narratormgm": "./dist/themes/narratormgm.css",
+    "./usermgm": "./dist/themes/usermgm.css"
   },
   "scripts": {
     "dev": "vite",
