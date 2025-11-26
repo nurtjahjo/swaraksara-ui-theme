@@ -21,7 +21,7 @@ body.theme-storemgm {
   --border-color-base: #D1D5DB;
   --border-color-hover: #F97316;
 
-  --cta-bg-color: #EF4444;
+  --cta-bg-color: #ff0000;
   --cta-text-color: #FFFFFF;
 
   /* 2. BENTUK (SHAPES & BORDERS) */
@@ -37,7 +37,7 @@ body.theme-storemgm {
   /* -- Variabel Header & Navigasi -- */
   --nav-height: 64px;
   --nav-bg-color: transparent;
-  --nav-scrolled-bg-color: linear-gradient(to right, #FFD34E, #FFAA4E);
+  --nav-scrolled-bg-color: linear-gradient(to right, #fffe82, #f1bf5d);
   --nav-border-color: #E5E7EB;
   --nav-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   --nav-link-color: var(--font-color-base);
