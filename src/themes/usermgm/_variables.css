@@ -18,14 +18,14 @@ body.theme-usermgm {
 
   --primary-color-hover: #F97316;
 
-  --border-color-base: #D1D5DB;
+  --border-color-base: #BBBBBB;
   --border-color-hover: #F97316;
 
   --cta-bg-color: #ff0000;
   --cta-text-color: #FFFFFF;
 
   /* 2. BENTUK (SHAPES & BORDERS) */
-  --border-width-base: 1px;
+  --border-width-base: 2px;
   --border-radius-form: 8px;
   --border-radius-button: 6px;
   --border-radius-input: 6px;
