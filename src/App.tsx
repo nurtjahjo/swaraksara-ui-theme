@@ -3,6 +3,7 @@ import { Modal } from './components/Modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWindowRestore, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { ChatShowcase } from './components/ChatShowcase';
+import { TabsShowcase } from './components/TabsShowcase'; // Import Tabs
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { ThemeProvider } from './providers/ThemeProvider';
@@ -11,15 +12,8 @@ import { ThemeSwitcher } from './components/ThemeSwitcher';
 type AppTheme = 'authormgm' | 'storemgm' | 'narratormgm' | 'usermgm';
 type ChatTheme = 'original' | 'evolution' | 'elegant' | 'monochrome';
 
-/**
- * Fungsi helper yang memuat stylesheet tema secara dinamis.
- * Ini adalah metode yang andal untuk mode dev dan build.
- * @param theme Nama tema yang akan dimuat.
- */
 const loadTheme = (theme: AppTheme) => {
-  // Tambahkan juga class ke body untuk penargetan gaya spesifik jika diperlukan
   document.body.className = `theme-${theme}`;
-
   let themeLink = document.getElementById('app-theme-style') as HTMLLinkElement;
   const themePath = `/themes/${theme}.css`;
 
@@ -51,9 +45,6 @@ const modalButtonStyle: React.CSSProperties = {
   transition: 'all 0.2s ease-in-out'
 };
 
-/**
- * Komponen yang berisi UI utama aplikasi.
- */
 function AppContent() {
   const [appTheme, setAppTheme] = useState<AppTheme>('authormgm');
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -63,13 +54,10 @@ function AppContent() {
     loadTheme(appTheme);
   }, [appTheme]);
   
-  // Tentukan posisi hamburger secara dinamis berdasarkan tema yang aktif
-  // usermgm mengikuti storemgm (kiri)
   const hamburgerPosition = (appTheme === 'storemgm' || appTheme === 'usermgm') ? 'left' : 'right';
 
   return (
     <div>
-      {/* Kirim prop 'hamburgerPosition' ke Navbar */}
       <Navbar hamburgerPosition={hamburgerPosition} />
       
       <div className="page-container">
@@ -112,22 +100,20 @@ function AppContent() {
 
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse
-            lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum
-            ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.
-            <br /><br />
-            Aenean consequat, lorem eget Pretium sodales, augue felis molestie sem, eget tempor
-            massa justo ut sem. Proin sodales, tellus in ultrices fringilla, quam quam
-            ultricies magna, non commodo purus risus non risus.
-            <br /><br />
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor.
           </p>
+          
           <button className="trigger-button" onClick={() => setIsModalOpen(true)}>
             <FontAwesomeIcon icon={faWindowRestore} />
             <span>Tampilkan Popup Showcase</span>
           </button>
           
+          <hr className="divider" />
+          
+          {/* TAB SHOWCASE SECTION */}
+          <h2>Tabs Component</h2>
+          <TabsShowcase />
+
           <hr className="divider" />
           
           <h2>Chat UI Showcase</h2>
@@ -192,9 +178,6 @@ function AppContent() {
   );
 }
 
-/**
- * Komponen App utama hanya membungkus dengan ThemeProvider.
- */
 function App() {
   return (
     <ThemeProvider>

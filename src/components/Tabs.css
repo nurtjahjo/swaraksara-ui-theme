@@ -1,0 +1,76 @@
+/* Container utama tab */
+.tab-container {
+  margin: 2rem 0;
+  text-align: left;
+}
+
+/* Garis horizontal pembatas */
+.tab-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  border-bottom: var(--border-width-base) solid var(--border-color-base);
+  padding-left: 0.5rem;
+}
+
+/* Style dasar tombol tab */
+.tab-button {
+  appearance: none;
+  background: transparent;
+  border: var(--border-width-base) solid transparent;
+  border-bottom: none;
+  
+  /* Round Top-Left & Top-Right */
+  border-top-left-radius: var(--border-radius-form);
+  border-top-right-radius: var(--border-radius-form);
+  
+  padding: 0.75rem 1.25rem;
+  font-family: var(--font-family-base);
+  font-size: 1rem;
+  /* font-weight: 600; */
+  color: var(--font-color-base);
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+  
+  /* Trik margin negatif agar border aktif menimpa garis container */
+  margin-bottom: calc(var(--border-width-base) * -1); 
+  bottom: calc(var(--border-width-base) * -1);
+  z-index: 0;
+}
+
+/* HOVER STATE */
+.tab-button:hover {
+  color: var(--font-color-accent);
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+/* ACTIVE STATE */
+.tab-button.active {
+  background-color: var(--surface-color);
+  border-color: var(--border-color-base);
+  
+  /* Menghilangkan garis bawah agar menyatu dengan konten */
+  border-bottom-color: var(--surface-color); 
+  
+  color: var(--font-color-accent);
+  z-index: 1; /* Pastikan di atas garis container */
+
+  font-weight: 600;
+}
+
+/* Konten Tab */
+.tab-content {
+  border: var(--border-width-base) solid var(--border-color-base);
+  border-top: none; /* Hilangkan border atas karena sudah diwakili garis tab */
+  padding: 2rem;
+  border-bottom-left-radius: var(--border-radius-form);
+  border-bottom-right-radius: var(--border-radius-form);
+  background-color: var(--surface-color);
+  min-height: 150px;
+}
+
+/* Sedikit shadow di dark mode agar tab lebih pop-up */
+html.dark .tab-button.active {
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
