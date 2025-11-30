@@ -38,6 +38,7 @@ export const Navbar: React.FC<NavbarProps> = ({ hamburgerPosition }) => {
           <a href="#" className="nav-link">Blog</a>
           <a href="#" className="nav-link">Kontak</a>
           <a href="#" className="nav-link">Masuk</a>
+          <a href="#" className="nav-link register-btn">Register</a>
         </div>
         <button 
           className="hamburger-menu" 

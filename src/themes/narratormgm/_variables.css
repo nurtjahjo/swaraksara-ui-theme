@@ -36,7 +36,7 @@
   --nav-border-color: #4C566A;
   --nav-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   --nav-link-color: var(--font-color-base);
-  --nav-link-hover-bg: rgba(136, 192, 208, 0.1);
+  /* --nav-link-hover-bg: rgba(136, 192, 208, 0.1); */
   --nav-link-active-color: var(--font-color-accent);
   --sidebar-bg-color: #3B4252;
   --nav-initial-opacity: 0; /* Mulai transparan seperti authormgm */
@@ -53,4 +53,10 @@
   --chat-input-bg: rgba(0, 0, 0, 0.2);
   --chat-button-bg-original: #88C0D0;
   --chat-button-text-original: #2E3440;
+
+  /* -- Register Button Styles -- */
+  --primary-color: var(--cta-bg-color);
+  --register-btn-border: var(--border-width-base);
+  --register-btn-style: solid;
+  --register-btn-color: var(--cta-bg-color);
 }

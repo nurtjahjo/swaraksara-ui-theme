@@ -25,7 +25,7 @@ body.theme-usermgm {
   --cta-text-color: #FFFFFF;
 
   /* 2. BENTUK (SHAPES & BORDERS) */
-  --border-width-base: 2px;
+  --border-width-base: 1px;
   --border-radius-form: 8px;
   --border-radius-button: 6px;
   --border-radius-input: 6px;
@@ -41,7 +41,7 @@ body.theme-usermgm {
   --nav-border-color: #E5E7EB;
   --nav-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   --nav-link-color: var(--font-color-base);
-  --nav-link-hover-bg: rgba(0, 0, 0, 0.03);
+  /* --nav-link-hover-bg: rgba(0, 0, 0, 0.03); */
   --nav-link-active-color: var(--cta-bg-color);
   --sidebar-bg-color: #FFFFFF;
   --nav-initial-opacity: 1;
@@ -59,6 +59,12 @@ body.theme-usermgm {
   --chat-input-bg: #F3F4F6;
   --chat-button-bg-original: var(--cta-bg-color);
   --chat-button-text-original: var(--cta-text-color);
+
+  /* -- Register Button Styles -- */
+  --primary-color: var(--cta-bg-color);
+  --register-btn-border: var(--border-width-base);
+  --register-btn-style: none;
+  --register-btn-color: var(--cta-bg-color);
 }
 
 /* ======================================== */
@@ -75,6 +81,7 @@ body.theme-usermgm {
     --sidebar-bg-color: #1F2937;
     --footer-bg-color: #000000;
     --chat-bg-incoming-original: #374151;
+     --border-width-base: 2px; 
   }
 }
 

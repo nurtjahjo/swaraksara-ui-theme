@@ -67,7 +67,8 @@ body.theme-storemgm .hamburger-menu {
   font-weight: 500;
 }
 
-.nav-link:hover {
+/* Hindari hover effect pada tombol register */
+.nav-link:not(.register-btn):hover{
   background-color: var(--nav-link-hover-bg);
   color: var(--nav-link-active-color);
 }
@@ -93,4 +94,12 @@ body.theme-storemgm .hamburger-menu {
   .hamburger-menu {
     display: block;
   }
+}
+
+.register-btn {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--register-btn-color);
+  border-style: var(--register-btn-style);
+  border-width: var(--register-btn-border);
 }
