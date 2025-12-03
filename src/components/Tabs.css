@@ -27,7 +27,7 @@
   padding: 0.75rem 1.25rem;
   font-family: var(--font-family-base);
   font-size: 1rem;
-  /* font-weight: 600; */
+  font-weight: 600;
   color: var(--font-color-base);
   cursor: pointer;
   position: relative;
@@ -55,8 +55,6 @@
   
   color: var(--font-color-accent);
   z-index: 1; /* Pastikan di atas garis container */
-
-  font-weight: 600;
 }
 
 /* Konten Tab */
