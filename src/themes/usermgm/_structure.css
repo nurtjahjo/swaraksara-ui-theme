@@ -1,0 +1,243 @@
+/* === GLOBAL LAYOUT V2 === */
+.sw-layout-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--bg-gradient);
+  color: var(--font-color-base);
+}
+
+.sw-main-content {
+  flex: 1;
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 2rem var(--container-padding-x);
+  box-sizing: border-box;
+}
+
+/* === HEADER V2 (3-TIER SYSTEM) === */
+.sw-header-container {
+  display: flex;
+  flex-direction: column;
+  background: var(--header-bg-gradient); 
+  box-shadow: var(--nav-shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Tier 1: Utility Bar */
+.sw-header-top {
+  height: var(--header-top-height);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  background: transparent;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 var(--container-padding-x);
+  font-size: 0.75rem; 
+  gap: 0.5rem;
+}
+
+/* Utility Elements */
+.sw-header-top button,
+.sw-header-top .language-display,
+.sw-header-top .theme-switcher-btn,
+.sw-header-top .icon-btn {
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 0.5rem !important;
+  width: auto !important;
+  height: 100% !important;
+  color: var(--font-color-base);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 0.75rem; 
+}
+
+.sw-header-top .theme-switcher-btn,
+.sw-header-top .icon-btn {
+  font-size: 0.9rem !important;
+  opacity: 0.8;
+}
+
+.sw-header-top .theme-switcher-btn:hover,
+.sw-header-top .language-display:hover,
+.sw-header-top .icon-btn:hover {
+  color: var(--primary-color-hover);
+  opacity: 1;
+}
+
+.sw-header-top .flag-icon {
+  font-size: 0.9rem !important; 
+  margin-right: 0.25rem !important;
+}
+
+/* Tier 2: Main Bar */
+.sw-header-main {
+  height: var(--header-main-height);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--container-padding-x);
+}
+
+.sw-brand {
+  font-family: var(--font-family-heading);
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--font-color-base);
+}
+
+.sw-search-bar {
+  flex: 1;
+  max-width: 400px;
+  margin: 0 2rem;
+  position: relative;
+}
+
+.sw-search-input {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border: var(--border-width-base) solid var(--border-color-base);
+  border-radius: var(--border-radius-input);
+  background-color: var(--surface-color);
+  color: var(--font-color-base);
+}
+
+/* Tier 3: Submodul Bar */
+.sw-header-sub {
+  height: var(--header-sub-height);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--container-padding-x);
+  gap: 1.5rem;
+  overflow-x: auto;
+}
+
+.sw-nav-link {
+  color: var(--font-color-base);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+}
+
+.sw-nav-link:hover,
+.sw-nav-link.active {
+  color: var(--cta-bg-color);
+  border-bottom-color: var(--cta-bg-color);
+  font-weight: bold;
+}
+
+/* === COMPONENTS: BUTTONS & LINKS === */
+.sw-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--border-radius-button);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.9rem;
+  border: 1px solid transparent;
+  width: 100%; 
+  box-sizing: border-box;
+}
+
+.sw-btn-primary {
+  background-color: var(--cta-bg-color);
+  color: var(--cta-text-color);
+}
+.sw-btn-primary:hover {
+  filter: brightness(110%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.sw-btn-sm {
+  padding: 0.35rem 1rem;
+  font-size: 0.85rem;
+}
+
+/* [NEW] Auth Link Style */
+.sw-auth-link {
+  text-decoration: underline;
+  font-weight: bold;
+  color: var(--font-color-base);
+  transition: color 0.2s ease-in-out;
+}
+.sw-auth-link:hover {
+  /* Ubah warna saat hover. Kita coba Merah CTA agar konsisten */
+  color: var(--cta-bg-color); 
+  text-decoration: none; /* Hilangkan garis bawah saat hover agar lebih dinamis */
+}
+
+/* === FOOTER V2 === */
+.sw-footer {
+  background-color: var(--footer-bg-color);
+  color: var(--footer-text-color);
+  padding: 3rem var(--container-padding-x);
+  margin-top: auto;
+}
+
+.sw-footer-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.sw-footer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sw-footer-link {
+  color: #cccccc;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.sw-footer-link:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* === LANDING HERO === */
+.sw-hero-center {
+  text-align: center;
+  padding: 4rem 1rem;
+  max-width: 95%; 
+  margin: 0 auto;
+}
+
+.sw-display-1 {
+  font-family: var(--font-family-heading);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.sw-lead {
+  font-size: 1.25rem;
+  color: var(--font-color-muted);
+  margin-bottom: 2.5rem;
+}

@@ -1,3 +1,11 @@
+/* Reset CSS */
 @import '../../core/_reset.css';
+
+/* Fonts */
 @import '../../core/_fonts.css';
+
+/* Variables (Colors, Dimensions) */
 @import './_variables.css';
+
+/* Structure & Layout (Header, Footer, Grid) */
+@import './_structure.css';
