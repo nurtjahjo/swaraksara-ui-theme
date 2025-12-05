@@ -12,6 +12,7 @@ export const TabsShowcase: React.FC = () => {
     { id: 'authormgm', label: 'Author Mgm' },
     { id: 'narratormgm', label: 'Narrator Mgm' },
     { id: 'usermgm', label: 'User Mgm' },
+    { id: 'financialmgm', label: 'Financial Mgm' },
   ];
 
   return (

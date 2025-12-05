@@ -1,14 +1,10 @@
 body.theme-storemgm {
-  /* ======================================== */
-  /* == THEME: STORE MGM (BRIGHT & CLEAN) == */
-  /* ======================================== */
-
-  /* Definisi ini berlaku untuk LIGHT MODE sebagai default */
+  /* --- BASE SETTINGS --- */
   background: #FFFFFF;
   color: #111827;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-  /* 1. WARNA (COLORS) */
+  /* --- COLORS (Identik UserMgm) --- */
   --font-color-base: #111827;
   --font-color-accent: #D97706;
   --font-color-muted: #6B7280;
@@ -16,7 +12,8 @@ body.theme-storemgm {
   --bg-gradient: #FFFFFF;
   --surface-color: #F9FAFB;
 
-  --primary-color-hover: #F97316;
+  /* Primary Action: Merah (Sama dengan UserMgm) */
+  --primary-color-hover: #ff0000; 
 
   --border-color-base: #D1D5DB;
   --border-color-hover: #F97316;
@@ -24,77 +21,83 @@ body.theme-storemgm {
   --cta-bg-color: #ff0000;
   --cta-text-color: #FFFFFF;
 
-  /* 2. BENTUK (SHAPES & BORDERS) */
+  --success-color: #10b981;
+  --error-color: #ef4444;
+
+  /* --- SHAPES --- */
   --border-width-base: 1px;
   --border-radius-form: 8px;
   --border-radius-button: 6px;
   --border-radius-input: 6px;
 
-  /* 3. TIPOGRAFI (TYPOGRAPHY) */
+  /* --- TYPOGRAPHY --- */
   --font-family-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   --font-family-heading: 'Agrandir-Grand-Heavy', Verdana, Geneva, Tahoma, sans-serif;
 
-  /* -- Variabel Header & Navigasi -- */
+  /* --- LAYOUT DIMENSIONS --- */
+  --header-top-height: 24px;
+  --header-main-height: 64px;
+  --header-sub-height: 24px;
+  
+  --container-max-width: 1200px;
+  --container-padding-x: 1.5rem;
+
+  --footer-bg-color: #000000;
+  --footer-text-color: #ffffff;
+
+  /* Header Gradient: Kuning (Sama dengan UserMgm) */
+  --header-bg-gradient: linear-gradient(to right, #fffe82, #f1be5c);
+
+  /* --- LEGACY VARS --- */
   --nav-height: 64px;
   --nav-bg-color: transparent;
   --nav-scrolled-bg-color: linear-gradient(to right, #fffe82, #f1be5c);
   --nav-border-color: #E5E7EB;
   --nav-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   --nav-link-color: var(--font-color-base);
-  /* --nav-link-hover-bg: rgba(0, 0, 0, 0.03); */
   --nav-link-active-color: var(--cta-bg-color);
   --sidebar-bg-color: #FFFFFF;
   --nav-initial-opacity: 1;
   --sidebar-link-align: left;
-
-  /* -- Variabel Footer -- */
-  --footer-bg-color: #111827;
-  --footer-text-color: #D1D5DB;
-  --footer-link-hover-color: #FFAA4E;
   --footer-border-color: #374151;
-
-  /* -- Variabel Chat (Adaptasi untuk tema cerah) -- */
+  --footer-link-hover-color: #FFAA4E;
   --chat-bg-incoming-original: #E5E7EB;
   --chat-border-outgoing-original: var(--border-color-hover);
   --chat-input-bg: #F3F4F6;
   --chat-button-bg-original: var(--cta-bg-color);
   --chat-button-text-original: var(--cta-text-color);
-
-  /* -- Register Button Styles -- */
   --primary-color: var(--cta-bg-color);
   --register-btn-border: var(--border-width-base);
   --register-btn-style: none;
-  --register-btn-color: var(--border-color-base:);
+  --register-btn-color: var(--cta-bg-color);
 }
 
-/* ======================================== */
-/* == STORE MGM - DARK MODE OVERRIDES == */
-/* ======================================== */
-/* Ini untuk deteksi otomatis preferensi OS */
+/* Dark Mode Override (Sama dengan UserMgm) */
 @media (prefers-color-scheme: dark) {
-  /* ++ PERBAIKAN SELEKTOR ++ */
   html.dark-mode-auto body.theme-storemgm {
     --font-color-base: #F9FAFB;
     --bg-gradient: #111827;
     --surface-color: #1F2937;
     --border-color-base: #374151;
+    --header-bg-gradient: #1F2937;
+    --primary-color-hover: #F97316;
     --nav-scrolled-bg-color: linear-gradient(to right, #1F2937, #111827);
     --sidebar-bg-color: #1F2937;
     --footer-bg-color: #000000;
     --chat-bg-incoming-original: #374151;
+    --border-width-base: 2px; 
   }
 }
 
-/* Ini untuk tombol manual switcher kita */
-/* ++ PERBAIKAN SELEKTOR UTAMA DI SINI ++ */
 html.dark body.theme-storemgm {
   background: #111827;
   color: #F9FAFB;
-
   --font-color-base: #F9FAFB;
   --bg-gradient: #111827;
   --surface-color: #1F2937;
   --border-color-base: #374151;
+  --header-bg-gradient: #1F2937;
+  --primary-color-hover: #F97316;
   --nav-scrolled-bg-color: linear-gradient(to right, #1F2937, #111827);
   --sidebar-bg-color: #1F2937;
   --footer-bg-color: #000000;
