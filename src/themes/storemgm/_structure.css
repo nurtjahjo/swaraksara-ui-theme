@@ -14,19 +14,37 @@
 .sw-header-main { height: var(--header-main-height); border-bottom: none; background: transparent; display: flex; align-items: center; justify-content: space-between; padding: 0 var(--container-padding-x); }
 .sw-brand { font-family: var(--font-family-heading); font-size: 1.5rem; font-weight: bold; text-decoration: none; color: var(--font-color-base); }
 
-/* [UPDATED] Search Bar: Added padding-right: 2rem */
 .sw-search-bar { 
   flex: 1; 
   max-width: 400px; 
   margin: 0 2rem; 
   position: relative; 
-  padding-right: 2rem; /* REQUESTED CHANGE */
+  padding-right: 2rem;
 }
 
 .sw-search-input { width: 100%; padding: 0.5rem 1rem; border: var(--border-width-base) solid var(--border-color-base); border-radius: var(--border-radius-input); background-color: var(--surface-color); color: var(--font-color-base); }
 
-/* Header Sub (5rem Left Padding) */
-.sw-header-sub { height: var(--header-sub-height); border-bottom: none; background: transparent; display: flex; align-items: center; padding: 0 1.5rem 0 5rem; gap: 1.5rem; overflow-x: auto; }
+/* Header Sub (FIX: HIDE SCROLLBAR) */
+.sw-header-sub { 
+  height: var(--header-sub-height); 
+  border-bottom: none; 
+  background: transparent; 
+  display: flex; 
+  align-items: center; 
+  padding: 0 1.5rem 0 5rem; 
+  gap: 1.5rem; 
+  overflow-x: auto;
+  
+  /* Hilangkan Scrollbar Firefox/IE/Edge */
+  scrollbar-width: none; 
+  -ms-overflow-style: none;  
+}
+
+/* Hilangkan Scrollbar Chrome/Safari/Opera */
+.sw-header-sub::-webkit-scrollbar {
+  display: none;
+}
+
 .sw-nav-link { color: var(--font-color-base); text-decoration: none; font-weight: 500; font-size: 0.9rem; height: 100%; display: flex; align-items: center; border-bottom: 2px solid transparent; white-space: nowrap; }
 .sw-nav-link:hover, .sw-nav-link.active { color: var(--cta-bg-color); border-bottom-color: var(--cta-bg-color); font-weight: 500; background-color: rgba(0,0,0,0.02); }
 
@@ -38,7 +56,7 @@
 .sw-auth-link { text-decoration: underline; font-weight: bold; color: var(--font-color-base); transition: color 0.2s ease-in-out; }
 .sw-auth-link:hover { color: var(--cta-bg-color); text-decoration: none; }
 
-/* === FOOTER & SIDEBAR (Standard) === */
+/* === FOOTER & SIDEBAR === */
 .sw-footer { background-color: var(--footer-bg-color); color: var(--footer-text-color); padding: 3rem var(--container-padding-x); margin-top: auto; }
 .sw-footer-container { max-width: var(--container-max-width); margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem; align-items: flex-start; }
 .sw-footer-section { display: flex; flex-direction: column; gap: 0.75rem; justify-content: flex-start; }

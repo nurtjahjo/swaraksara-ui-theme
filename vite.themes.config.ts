@@ -7,6 +7,7 @@ export default defineConfig({
 
   build: {
     outDir: 'dist',
+    emptyOutDir: false,
     rollupOptions: {
       input: {
         authormgm: resolve(__dirname, 'src/themes/authormgm/index.css'),
@@ -24,6 +25,5 @@ export default defineConfig({
         },
       },
     },
-    emptyOutDir: true,
   },
 });
