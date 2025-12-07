@@ -1,9 +1,12 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
 
-// Konfigurasi ini HANYA untuk membangun file CSS tema
 export default defineConfig({
+  // TAMBAHKAN INI: Agar path aset menjadi relatif (../assets/...)
+  base: './', 
+
   build: {
+    outDir: 'dist',
     rollupOptions: {
       input: {
         authormgm: resolve(__dirname, 'src/themes/authormgm/index.css'),
@@ -12,11 +15,15 @@ export default defineConfig({
         usermgm: resolve(__dirname, 'src/themes/usermgm/index.css'),
       },
       output: {
-        // Simpan file CSS di dalam subfolder 'themes' di dalam 'dist'
-        assetFileNames: 'themes/[name].css',
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name && assetInfo.name.endsWith('.css')) {
+            return 'themes/[name][extname]';
+          }
+          // Font dan aset lain masuk ke assets
+          return 'assets/[name][extname]';
+        },
       },
     },
-    // Pastikan folder output bersih setiap kali build tema
     emptyOutDir: true,
   },
 });

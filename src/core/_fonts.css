@@ -1,4 +1,6 @@
+/* src/core/_fonts.css */
 @font-face {
   font-family: 'Agrandir-Grand-Heavy';
-  src: url('/fonts/Agrandir/Agrandir Grand Heavy 800.otf');
+  /* Gunakan path relatif ke lokasi file fisik di src */
+  src: url('../assets/fonts/Agrandir/Agrandir Grand Heavy 800.otf');
 }
