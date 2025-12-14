@@ -19,7 +19,7 @@ interface ThemeProviderProps {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 // --- PERUBAHAN 2: Terima props 'defaultMode' ---
-export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children, defaultMode = 'auto' }) => {
+export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children, defaultMode = 'light' }) => {
   
   // --- PERUBAHAN 3: Gunakan 'defaultMode' sebagai fallback ---
   const [mode, setModeState] = useState<ThemeMode>(() => {
