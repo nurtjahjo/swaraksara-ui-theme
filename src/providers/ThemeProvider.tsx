@@ -1,77 +1,66 @@
+// File: src/providers/ThemeProvider.tsx (Refactored to remove 'auto' mode)
+
 import React, { createContext, useContext, useState, useEffect, useMemo } from 'react';
 import { getSwaraksaraCookie, setSwaraksaraCookie } from '../utils/cookieManager';
 
-// Tipe data sesuai request
-export type ThemeMode = 'light' | 'dark' | 'auto';
+// --- PERUBAHAN 1: Hapus 'auto' dari tipe data ---
+export type ThemeMode = 'light' | 'dark';
 
 interface ThemeContextType {
-  mode: ThemeMode;          // Pilihan user: light, dark, atau auto
-  resolvedTheme: 'light' | 'dark'; // Hasil akhir yang dirender (auto -> dark/light)
+  mode: ThemeMode; // 'mode' sekarang sama dengan 'resolvedTheme'
   setMode: (mode: ThemeMode) => void;
 }
 
-// --- PERUBAHAN 1: Definisikan props untuk ThemeProvider ---
 interface ThemeProviderProps {
   children: React.ReactNode;
-  defaultMode?: ThemeMode; // Prop baru, opsional
+  defaultMode?: ThemeMode; // Prop ini tetap ada untuk fleksibilitas, tapi defaultnya 'light'
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-// --- PERUBAHAN 2: Terima props 'defaultMode' ---
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children, defaultMode = 'light' }) => {
   
-  // --- PERUBAHAN 3: Gunakan 'defaultMode' sebagai fallback ---
+  // --- PERUBAHAN 2: Sederhanakan logika inisialisasi state ---
   const [mode, setModeState] = useState<ThemeMode>(() => {
     const cookieVal = getSwaraksaraCookie('sa_theme');
-    if (cookieVal === 'light' || cookieVal === 'dark' || cookieVal === 'auto') {
-      return cookieVal as ThemeMode;
+    // Cukup periksa apakah cookie adalah 'light' atau 'dark'
+    if (cookieVal === 'light' || cookieVal === 'dark') {
+      return cookieVal;
     }
-    // Jika tidak ada cookie, gunakan prop defaultMode, yang defaultnya 'auto'
+    // Jika tidak ada cookie yang valid, gunakan prop defaultMode (yang defaultnya 'light')
     return defaultMode; 
   });
 
-  // 2. State untuk menyimpan tema aktual (jika auto, apakah sistem sedang dark/light?)
-  const [systemTheme, setSystemTheme] = useState<'light' | 'dark'>(
-    window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-  );
+  // --- PERUBAHAN 3: Hapus semua logika deteksi sistem ---
+  // State 'systemTheme' dan useEffect yang mendengarkan 'prefers-color-scheme' dihapus
+  // karena tidak lagi diperlukan.
 
-  // 3. Listener perubahan preferensi sistem (OS)
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    const handleChange = (e: MediaQueryListEvent) => {
-      setSystemTheme(e.matches ? 'dark' : 'light');
-    };
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
-  }, []);
+  // --- PERUBAHAN 4: 'resolvedTheme' sekarang hanya alias untuk 'mode' ---
+  // Tidak ada lagi kalkulasi yang dibutuhkan.
+  const resolvedTheme = mode;
 
-  // 4. Hitung tema yang akan diterapkan
-  const resolvedTheme = useMemo(() => {
-    if (mode === 'auto') return systemTheme;
-    return mode;
-  }, [mode, systemTheme]);
-
-  // 5. Efek Samping: Update DOM & Cookie
+  // Efek Samping: Update DOM & Cookie (Logika ini tetap sama)
   useEffect(() => {
     const root = window.document.documentElement;
     
-    // Hapus class lama
     root.classList.remove('light', 'dark');
-    // Tambah class baru
     root.classList.add(resolvedTheme);
 
-    // Simpan preferensi user (bukan resolved) ke Cookie
+    // Simpan preferensi user ke Cookie
     setSwaraksaraCookie('sa_theme', mode);
     
   }, [mode, resolvedTheme]);
 
-  // Wrapper setter agar konsisten
   const setMode = (newMode: ThemeMode) => {
     setModeState(newMode);
   };
 
-  const value = useMemo(() => ({ mode, resolvedTheme, setMode }), [mode, resolvedTheme]);
+  // --- PERUBAHAN 5: Sederhanakan nilai context ---
+  const value = useMemo(() => ({ 
+    mode: resolvedTheme, // Kirimkan tema yang sudah final
+    resolvedTheme: resolvedTheme, // Tetap sediakan untuk kompatibilitas jika diperlukan
+    setMode 
+  }), [resolvedTheme]);
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 };
