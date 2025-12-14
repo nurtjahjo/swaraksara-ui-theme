@@ -10,16 +10,25 @@ interface ThemeContextType {
   setMode: (mode: ThemeMode) => void;
 }
 
+// --- PERUBAHAN 1: Definisikan props untuk ThemeProvider ---
+interface ThemeProviderProps {
+  children: React.ReactNode;
+  defaultMode?: ThemeMode; // Prop baru, opsional
+}
+
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  // 1. Inisialisasi State dari Cookie -> LocalStorage -> Default 'auto'
+// --- PERUBAHAN 2: Terima props 'defaultMode' ---
+export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children, defaultMode = 'auto' }) => {
+  
+  // --- PERUBAHAN 3: Gunakan 'defaultMode' sebagai fallback ---
   const [mode, setModeState] = useState<ThemeMode>(() => {
     const cookieVal = getSwaraksaraCookie('sa_theme');
     if (cookieVal === 'light' || cookieVal === 'dark' || cookieVal === 'auto') {
       return cookieVal as ThemeMode;
     }
-    return 'auto'; // Default aman
+    // Jika tidak ada cookie, gunakan prop defaultMode, yang defaultnya 'auto'
+    return defaultMode; 
   });
 
   // 2. State untuk menyimpan tema aktual (jika auto, apakah sistem sedang dark/light?)
@@ -53,7 +62,6 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     root.classList.add(resolvedTheme);
 
     // Simpan preferensi user (bukan resolved) ke Cookie
-    // Agar bisa dibaca subdomain lain
     setSwaraksaraCookie('sa_theme', mode);
     
   }, [mode, resolvedTheme]);
