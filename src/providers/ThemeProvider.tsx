@@ -1,14 +1,13 @@
-// File: src/providers/ThemeProvider.tsx (Corrected Type Definition)
+// File: src/providers/ThemeProvider.tsx (Final & Stable)
 
 import React, { createContext, useContext, useState, useEffect, useMemo } from 'react';
 import { getSwaraksaraCookie, setSwaraksaraCookie } from '../utils/cookieManager';
 
 export type ThemeMode = 'light' | 'dark';
 
-// --- PERBAIKAN DI SINI ---
 interface ThemeContextType {
   mode: ThemeMode;
-  resolvedTheme: ThemeMode; // 'resolvedTheme' sekarang ada di tipe data
+  resolvedTheme: ThemeMode;
   setMode: (mode: ThemeMode) => void;
 }
 
