@@ -34,29 +34,17 @@
     "type": "git",
     "url": "git+https://github.com/nurtjahjo/swaraksara-ui-theme.git"
   },
-  "keywords": [
-    "react",
-    "theme",
-    "css",
-    "ui",
-    "swaraksara",
-    "vite"
-  ],
+  "keywords": [ "react", "theme", "css", "ui", "swaraksara", "vite" ],
   "author": "Nurtjahjo <seto@swaraksara.id>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/nurtjahjo/swaraksara-ui-theme/issues"
-  },
+  "bugs": { "url": "https://github.com/nurtjahjo/swaraksara-ui-theme/issues" },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
     "@fortawesome/free-regular-svg-icons": "^6.5.2",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/react-fontawesome": "^0.2.2"
   },
-  "peerDependencies": {
-    "react": "^18.0.0 || ^19.0.0",
-    "react-dom": "^18.0.0 || ^19.0.0"
-  },
+  "peerDependencies": { "react": "^18.0.0 || ^19.0.0", "react-dom": "^18.0.0 || ^19.0.0" },
   "devDependencies": {
     "@types/node": "^20.14.9",
     "@types/react": "^18.3.3",
@@ -70,6 +58,7 @@
     "typescript": "^5.2.2",
     "vite": "^7.1.11",
     "vite-plugin-dts": "^4.5.4",
+    "vite-plugin-static-copy": "^1.0.5",
     "vite-plugin-svgr": "^4.5.0"
   }
 }
