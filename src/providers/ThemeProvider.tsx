@@ -1,35 +1,51 @@
-import React, { createContext, useContext, useState, useEffect, useMemo } from 'react';
+// File: src/providers/ThemeProvider.tsx (Final & Stable)
 
-type Theme = 'light' | 'dark';
+import React, { createContext, useContext, useState, useEffect, useMemo } from 'react';
+import { getSwaraksaraCookie, setSwaraksaraCookie } from '../utils/cookieManager';
+
+export type ThemeMode = 'light' | 'dark';
 
 interface ThemeContextType {
-  theme: Theme;
-  toggleTheme: () => void;
+  mode: ThemeMode;
+  resolvedTheme: ThemeMode;
+  setMode: (mode: ThemeMode) => void;
+}
+
+interface ThemeProviderProps {
+  children: React.ReactNode;
+  defaultMode?: ThemeMode;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [theme, setTheme] = useState<Theme>(() => {
-    const storedTheme = window.localStorage.getItem('app-theme') as Theme | null;
-    return storedTheme || 'light';
+export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children, defaultMode = 'light' }) => {
+  
+  const [mode, setModeState] = useState<ThemeMode>(() => {
+    const cookieVal = getSwaraksaraCookie('sa_theme');
+    if (cookieVal === 'light' || cookieVal === 'dark') {
+      return cookieVal;
+    }
+    return defaultMode; 
   });
 
-  useEffect(() => {
-    const root = window.document.documentElement; // Target <html>
-    if (theme === 'dark') {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
-    }
-    window.localStorage.setItem('app-theme', theme);
-  }, [theme]);
+  const resolvedTheme = mode;
 
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+  useEffect(() => {
+    const root = window.document.documentElement;
+    root.classList.remove('light', 'dark');
+    root.classList.add(resolvedTheme);
+    setSwaraksaraCookie('sa_theme', mode);
+  }, [mode, resolvedTheme]);
+
+  const setMode = (newMode: ThemeMode) => {
+    setModeState(newMode);
   };
 
-  const value = useMemo(() => ({ theme, toggleTheme }), [theme]);
+  const value = useMemo(() => ({ 
+    mode: resolvedTheme,
+    resolvedTheme: resolvedTheme,
+    setMode 
+  }), [resolvedTheme]);
 
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 };

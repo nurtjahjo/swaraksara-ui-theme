@@ -1,3 +1,5 @@
 @import '../../core/_reset.css';
 @import '../../core/_fonts.css';
+@import '../../core/_layout.css'; /* Added Global Layout */
 @import './_variables.css';
+@import './_structure.css'; /* Local overrides */
