@@ -57,7 +57,7 @@
 .sw-auth-link:hover { color: var(--cta-bg-color); text-decoration: none; }
 
 /* === FOOTER & SIDEBAR === */
-.sw-footer { background-color: var(--footer-bg-color); color: var(--footer-text-color); padding: 3rem var(--container-padding-x); margin-top: auto; }
+.sw-footer { background-color: var(--footer-bg-color); color: var(--footer-text-color); padding: 1.5rem var(--container-padding-x); margin-top: auto; }
 .sw-footer-container { max-width: var(--container-max-width); margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem; align-items: flex-start; }
 .sw-footer-section { display: flex; flex-direction: column; gap: 0.75rem; justify-content: flex-start; }
 .sw-footer-center { align-items: center; }
