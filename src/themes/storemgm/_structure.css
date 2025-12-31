@@ -1,6 +1,6 @@
 /* === GLOBAL LAYOUT V2 (Standardized) === */
 .sw-layout-wrapper { display: flex; flex-direction: column; min-height: 100vh; background: var(--bg-gradient); color: var(--font-color-base); }
-.sw-main-content { flex: 1; width: 100%; max-width: var(--container-max-width); margin: 0 auto; padding: 2rem var(--container-padding-x); box-sizing: border-box; }
+.sw-main-content { flex: 1; width: 100%; max-width: var(--container-max-width); margin: 0 auto; padding: 1rem var(--container-padding-x) 0 var(--container-padding-x); box-sizing: border-box; }
 
 /* === HEADER V2 === */
 .sw-header-container { display: flex; flex-direction: column; background: var(--header-bg-gradient); box-shadow: var(--nav-shadow); position: sticky; top: 0; z-index: 100; }
