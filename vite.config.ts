@@ -11,29 +11,27 @@ export default defineConfig({
       insertTypesEntry: true,
       rollupTypes: true,
       tsconfigPath: './tsconfig.app.json',
-      // PENTING: Jangan buat type definition untuk script legacy (karena itu JS murni)
-      exclude: ['src/assets/scripts/**'] 
+      exclude: ['src/core/fontAwesomeEngine.js']
     })
   ],
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'SwaraksaraUI',
-      fileName: 'swaraksara-ui',
-      formats: ['es', 'umd'] // Standar: ES untuk Vite/Webpack, UMD untuk legacy
+      // KITA KUNCI NAMA FILENYA
+      fileName: (format) => `index.${format === 'es' ? 'js' : 'cjs'}`,
+      formats: ['es', 'cjs']
     },
     rollupOptions: {
-      // Pastikan React tidak ikut ter-bundle (Peer Dependency)
       external: ['react', 'react-dom', 'react/jsx-runtime'],
       output: {
         globals: {
           react: 'React',
-          'react-dom': 'ReactDOM',
-          'react/jsx-runtime': 'jsxRuntime'
-        },
-      },
+          'react-dom': 'ReactDOM'
+        }
+      }
     },
-    // Pastikan minifikasi aktif untuk production
-    minify: 'esbuild', 
+    minify: 'esbuild',
+    emptyOutDir: true, // Pastikan dist bersih sebelum build
   },
 })
