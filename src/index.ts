@@ -4,6 +4,7 @@ import './assets/scripts/selected.v2.js';
 
 // 2. Export Components
 export { Icon } from './components/Icon';
+export type { IconProps, IconStyle } from './components/Icon';
 export { Navbar } from './components/Navbar';
 export { Footer } from './components/Footer';
 export { Sidebar } from './components/Sidebar';
