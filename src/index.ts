@@ -15,4 +15,4 @@ export { Footer } from './components/Footer';
 export { Sidebar } from './components/Sidebar';
 export { ThemeSwitcher } from './components/ThemeSwitcher';
 export { Modal } from './components/Modal';
-export { Icon } from './components/Icon'; // <-- Export Baru
+export { LegacyIconLoader } from './components/LegacyIconLoader'; // <-- NEW EXPORT

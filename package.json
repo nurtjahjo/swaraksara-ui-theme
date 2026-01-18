@@ -18,8 +18,7 @@
     "./authormgm": "./dist/themes/authormgm.css",
     "./storemgm": "./dist/themes/storemgm.css",
     "./narratormgm": "./dist/themes/narratormgm.css",
-    "./usermgm": "./dist/themes/usermgm.css",
-    "./icons/*": "./dist/icons/*"
+    "./usermgm": "./dist/themes/usermgm.css"
   },
   "scripts": {
     "dev": "vite",
@@ -69,7 +68,6 @@
     "eslint-plugin-react-refresh": "^0.4.7",
     "typescript": "^5.2.2",
     "vite": "^7.1.11",
-    "vite-plugin-dts": "^4.5.4",
-    "vite-plugin-svgr": "^4.5.0"
+    "vite-plugin-dts": "^4.5.4"
   }
 }
