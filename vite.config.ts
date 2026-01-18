@@ -19,6 +19,7 @@ export default defineConfig({
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'SwaraksaraUI',
       fileName: 'swaraksara-ui',
+      formats: ['es', 'umd'] // Pastikan ES (ESM) di-generate
     },
     rollupOptions: {
       external: ['react', 'react-dom', 'react/jsx-runtime'],
@@ -30,8 +31,5 @@ export default defineConfig({
         },
       },
     },
-  },
-  server: {
-    port: 3001,
   },
 })
