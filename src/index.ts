@@ -1,5 +1,8 @@
 // src/index.ts
 
+// --- CRITICAL: Load Icon Engine (Legacy Script) ---
+import './assets/scripts/selected.v2.js';
+
 // Export Providers & Hooks
 export { ThemeProvider, useTheme } from './providers/ThemeProvider';
 export { LocaleProvider, useLocale } from './providers/LocaleProvider';
@@ -15,4 +18,4 @@ export { Footer } from './components/Footer';
 export { Sidebar } from './components/Sidebar';
 export { ThemeSwitcher } from './components/ThemeSwitcher';
 export { Modal } from './components/Modal';
-export { LegacyIconLoader } from './components/LegacyIconLoader'; // <-- NEW EXPORT
+export { Icon } from './components/Icon'; 
